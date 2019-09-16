@@ -9,6 +9,12 @@ Vagrant.configure("2") do |config|
     vb.memory = "512"
   end
 
+  config.vm.define "web" do |web|
+    web.vm.network "private_network", ip: "192.168.33.11"
+
+    # web.vm.provision :shell, path: "provisioning/web.sh"
+  end
+
   config.vm.define "redis" do |redis|
     redis.vm.network "private_network", ip: "192.168.33.10"
 
